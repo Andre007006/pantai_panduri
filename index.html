@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layanan Wisata Pantai</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(to bottom, #87CEFA, #f0f8ff);
+      color: #333;
+    }
+
+    header {
+      background: #0491e9;
+      color: #fff;
+      padding: 1rem 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background-image: url(Home.jpg);
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      height: 100vh;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    section {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .services,
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .service,
+    .gallery img {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      padding: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #004d4d;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    form input,
+    form textarea,
+    form button {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    form button {
+      background: #008080;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #004d4d;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">PantaiKu</div>
+      <div>
+        <a href="#about">Tentang Kami</a>
+        <a href="#services">Layanan</a>
+        <a href="#gallery">Galeri</a>
+        <a href="#contact">Kontak</a>
+      </div>
+    </nav>
+  </header>
+  <div class="hero">
+    <h2>Keindahan Pantai Menantimu</h2>
+    <p>Nikmati pengalaman liburan yang tak terlupakan</p>
+  </div>
+  <section id="about">
+    <h2>Tentang Kami</h2>
+    <p>Kami menyediakan layanan wisata pantai terbaik dengan paket lengkap untuk keluarga, pasangan, dan individu.</p>
+  </section>
+  <section id="services">
+    <h2>Layanan Kami</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Paket Liburan</h3>
+        <p>Beragam paket liburan sesuai kebutuhan Anda.</p>
+      </div>
+      <div class="service">
+        <h3>Sewa Peralatan</h3>
+        <p>Sewa peralatan pantai seperti papan selancar dan snorkeling.</p>
+      </div>
+      <div class="service">
+        <h3>Tur Pantai</h3>
+        <p>Tur pantai bersama pemandu profesional.</p>
+      </div>
+    </div>
+  </section>
+  <section id="gallery">
+    <h2>Galeri</h2>
+    <div class="gallery">
+      <img src="https://source.unsplash.com/200x200/?beach,sea" alt="Pantai 1">
+      <img src="https://source.unsplash.com/200x200/?sand,sunset" alt="Pantai 2">
+      <img src="https://source.unsplash.com/200x200/?ocean,vacation" alt="Pantai 3">
+      <img src="https://source.unsplash.com/200x200/?waves,paradise" alt="Pantai 4">
+    </div>
+  </section>
+  <section id="contact">
+    <h2>Kontak Kami</h2>
+    <form>
+      <input type="text" placeholder="Nama" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Pesan" rows="5" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+  <footer>
+    <p>&copy; 2025 Layanan Wisata Pantai. Semua Hak Dilindungi.</p>
+  </footer>
+</body>
+
+</html>
