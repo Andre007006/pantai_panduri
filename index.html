@@ -5,6 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Layanan Wisata Pantai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Playwrite+AU+SA:wght@100..400&family=Playwrite+AU+TAS+Guides&family=Playwrite+GB+S+Guides:ital@0;1&display=swap"
+    rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -20,16 +26,24 @@
     }
 
     header {
-      background: #0491e9;
-      color: #fff;
-      padding: 1rem 0;
+      background: #008080;
     }
 
     nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0.5rem 1rem;
+      background: rgba(5, 197, 255, 0.051);
+      transition: background 0.3s ease;
+      z-index: 10;
+    }
+
+    nav.scrolled {
+      background: rgb(5, 197, 255);
     }
 
     nav .logo {
@@ -43,29 +57,148 @@
       text-decoration: none;
       margin: 0 1rem;
       font-weight: bold;
+      position: relative;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     .hero {
-      text-align: center;
-      padding: 3rem 1rem;
-      background-image: url(Home.jpg);
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .carousel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background-size: cover;
       background-position: center;
-      color: #fff;
-      height: 100vh;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .carousel-image.active {
+      opacity: 1;
+    }
+
+    .hero-content {
+      z-index: 2;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .hero-content h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: white;
+      opacity: 0;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInText 1s ease-out forwards;
+    }
+
+
+    /* Tambahkan animasi delay untuk elemen kedua dan ketiga */
+    .hero-content h2:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .hero-content h2:nth-child(2) {
+      animation-delay: 0.6s;
+    }
+
+    .hero-content h2:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    /* Keyframes untuk Fade In Teks */
+    @keyframes fadeInText {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero h2 {
-      font-size: 2rem;
+      font-family: "Playwrite AU SA", serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
     .hero p {
       font-size: 1.2rem;
+      margin-top: 20px;
+      /* Menambahkan jarak agar p tidak terlalu dekat dengan h2 */
+    }
+
+    .cursor-trail {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 2px;
+      background: #ffffff;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 1000;
+      transform: translate(-50%, -50%);
+      animation: cursor-fade 0.8s infinite;
+    }
+
+    @keyframes cursor-fade {
+      0% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(2);
+      }
     }
 
     section {
@@ -79,6 +212,7 @@
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
       padding: 1rem;
+      overflow: hidden;
     }
 
     .service,
@@ -139,6 +273,25 @@
       background: #004d4d;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('.carousel-image');
+      let currentIndex = 0;
+
+      function changeImage() {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+      }
+
+      // Set gambar pertama aktif
+      images[currentIndex].classList.add('active');
+
+      // Interval untuk mengganti gambar
+      setInterval(changeImage, 5000); // Ganti gambar setiap 5 detik
+    });
+  </script>
+
 </head>
 
 <body>
@@ -146,6 +299,7 @@
     <nav>
       <div class="logo">PantaiKu</div>
       <div>
+        <a href="#home">Beranda</a>
         <a href="#about">Tentang Kami</a>
         <a href="#services">Layanan</a>
         <a href="#gallery">Galeri</a>
@@ -153,10 +307,19 @@
       </div>
     </nav>
   </header>
-  <div class="hero">
-    <h2>Keindahan Pantai Menantimu</h2>
-    <p>Nikmati pengalaman liburan yang tak terlupakan</p>
+  <div id="home" class="hero">
+    <div class="carousel">
+      <div class="carousel-image" style="background-image: url(hero1.jpg);"></div>
+      <div class="carousel-image" style="background-image: url(hero2.jpg);"></div>
+      <div class="carousel-image" style="background-image: url('hero3.jpg');"></div>
+    </div>
+    <div class="hero-content">
+      <h2>Keindahan</h2>
+      <h2>Pantai</h2>
+      <h2>Menantimu</h2>
+    </div>
   </div>
+  <div class="cursor-trail"></div>
   <section id="about">
     <h2>Tentang Kami</h2>
     <p>Kami menyediakan layanan wisata pantai terbaik dengan paket lengkap untuk keluarga, pasangan, dan individu.</p>
@@ -199,6 +362,35 @@
   <footer>
     <p>&copy; 2025 Layanan Wisata Pantai. Semua Hak Dilindungi.</p>
   </footer>
+
+  <script>
+    // Menambahkan efek perubahan latar navbar saat scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 500) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    document.addEventListener('mousemove', (event) => {
+      const cursorTrail = document.querySelector('.cursor-trail');
+
+      // Update posisi kursor
+      cursorTrail.style.left = `${event.pageX}px`;
+      cursorTrail.style.top = `${event.pageY}px`;
+
+      // Duplikasi jejak
+      const clone = cursorTrail.cloneNode();
+      document.body.appendChild(clone);
+
+      // Hilangkan jejak setelah beberapa waktu
+      setTimeout(() => {
+        clone.remove();
+      }, 800); // Durasi animasi fade sesuai CSS (0.8s)
+    });
+  </script>
 </body>
 
 </html>
