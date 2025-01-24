@@ -4,275 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layanan Wisata Pantai</title>
+  <link rel="icon" type="image/png" href="Logo Panduri no bg.png">
+  <title>Wisata Pantai Panduri</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Playwrite+AU+SA:wght@100..400&family=Playwrite+AU+TAS+Guides&family=Playwrite+GB+S+Guides:ital@0;1&display=swap"
     rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background: linear-gradient(to bottom, #87CEFA, #f0f8ff);
-      color: #333;
-    }
-
-    header {
-      background: #008080;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 1rem;
-      background: rgba(5, 197, 255, 0.051);
-      transition: background 0.3s ease;
-      z-index: 10;
-    }
-
-    nav.scrolled {
-      background: rgb(5, 197, 255);
-    }
-
-    nav .logo {
-      font-size: 1.5rem;
-      color: #fff;
-      font-weight: bold;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-      position: relative;
-    }
-
-    nav a::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: #fff;
-      transition: width 0.3s;
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .hero {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-    }
-
-    .carousel {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .carousel-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-    }
-
-    .carousel-image.active {
-      opacity: 1;
-    }
-
-    .hero-content {
-      z-index: 2;
-      text-align: center;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 20px;
-      margin-top: 50px;
-      position: relative;
-    }
-
-    .hero-content h2 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: white;
-      opacity: 0;
-      position: relative;
-      overflow: hidden;
-      animation: fadeInText 1s ease-out forwards;
-    }
-
-
-    /* Tambahkan animasi delay untuk elemen kedua dan ketiga */
-    .hero-content h2:nth-child(1) {
-      animation-delay: 0.2s;
-    }
-
-    .hero-content h2:nth-child(2) {
-      animation-delay: 0.6s;
-    }
-
-    .hero-content h2:nth-child(3) {
-      animation-delay: 1s;
-    }
-
-    /* Keyframes untuk Fade In Teks */
-    @keyframes fadeInText {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hero h2 {
-      font-family: "Playwrite AU SA", serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 20px;
-      /* Menambahkan jarak agar p tidak terlalu dekat dengan h2 */
-    }
-
-    .cursor-trail {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 2px;
-      height: 2px;
-      background: #ffffff;
-      opacity: 0.7;
-      pointer-events: none;
-      z-index: 1000;
-      transform: translate(-50%, -50%);
-      animation: cursor-fade 0.8s infinite;
-    }
-
-    @keyframes cursor-fade {
-      0% {
-        opacity: 0.7;
-        transform: scale(1);
-      }
-
-      100% {
-        opacity: 0;
-        transform: scale(2);
-      }
-    }
-
-    section {
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    .services,
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
-      overflow: hidden;
-    }
-
-    .service,
-    .gallery img {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      padding: 1rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    footer {
-      background: #004d4d;
-      color: #fff;
-      text-align: center;
-      padding: 1rem 0;
-      margin-top: 2rem;
-    }
-
-    form {
-      max-width: 500px;
-      margin: 0 auto;
-      background: #f4f4f4;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    form input,
-    form textarea,
-    form button {
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    form button {
-      background: #008080;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background: #004d4d;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const images = document.querySelectorAll('.carousel-image');
@@ -297,11 +36,15 @@
 <body>
   <header>
     <nav>
-      <div class="logo">PantaiKu</div>
+      <div class="logo">
+        <img src="Logo Panduri no bg.png" alt="Logo Panduri" style="height: 40px; vertical-align: middle;">Pantai
+        Panduri
+      </div>
       <div>
         <a href="#home">Beranda</a>
-        <a href="#about">Tentang Kami</a>
+        <a href="#about">Tentang</a>
         <a href="#services">Layanan</a>
+        <a href="pricelist.jpeg">Pricelist</a>
         <a href="#gallery">Galeri</a>
         <a href="#contact">Kontak</a>
       </div>
@@ -309,42 +52,195 @@
   </header>
   <div id="home" class="hero">
     <div class="carousel">
-      <div class="carousel-image" style="background-image: url(hero1.jpg);"></div>
-      <div class="carousel-image" style="background-image: url(hero2.jpg);"></div>
-      <div class="carousel-image" style="background-image: url('hero3.jpg');"></div>
+      <div class="carousel-image" style="background-image: url(hero1.jpeg); background-position: bottom;"></div>
+      <div class="carousel-image" style="background-image: url(hero2.jpeg); background-position: 25% 40%;"></div>
+      <div class="carousel-image" style="background-image: url('hero3.jpeg');background-position: 10% 62%;"></div>
+      <div class="carousel-image" style="background-image: url('hero4.jpeg');background-position: 10% 50%;"></div>
+      <div class="carousel-image" style="background-image: url('hero5.jpeg');background-position: center;"></div>
     </div>
     <div class="hero-content">
-      <h2>Keindahan</h2>
-      <h2>Pantai</h2>
-      <h2>Menantimu</h2>
+      <div class="hero-h2">
+        <h2>Pantai</h2>
+        <h2>Panduri</h2>
+      </div>
+      <p>Nikmati surga tersembunyi di pesisir Tuban</p>
     </div>
   </div>
   <div class="cursor-trail"></div>
+
   <section id="about">
-    <h2>Tentang Kami</h2>
-    <p>Kami menyediakan layanan wisata pantai terbaik dengan paket lengkap untuk keluarga, pasangan, dan individu.</p>
-  </section>
-  <section id="services">
-    <h2>Layanan Kami</h2>
-    <div class="services">
-      <div class="service">
-        <h3>Paket Liburan</h3>
-        <p>Beragam paket liburan sesuai kebutuhan Anda.</p>
-      </div>
-      <div class="service">
-        <h3>Sewa Peralatan</h3>
-        <p>Sewa peralatan pantai seperti papan selancar dan snorkeling.</p>
-      </div>
-      <div class="service">
-        <h3>Tur Pantai</h3>
-        <p>Tur pantai bersama pemandu profesional.</p>
+    <div class="container">
+      <h2>Tentang Kami</h2>
+      <div class="about-flex">
+        <div class="about-image">
+          <img src="kamping(1).jpeg" alt="Pantai Panduri">
+        </div>
+        <div class="about-content">
+          <p class="welcome">Welcome to Pantai Panduri</p>
+          <p>
+            Selamat datang di Pantai Panduri, surga tersembunyi di pesisir Tuban yang menawarkan pengalaman berkemah di
+            tepi laut. Nikmati pemandangan laut biru, pasir putih, dan malam bertabur bintang diiringi deburan ombak
+            yang
+            menenangkan.
+          </p>
+          <br>
+          <p>
+            Pantai Panduri dilengkapi fasilitas seperti area camping, akses air bersih, dan tempat api unggun untuk
+            mendukung kenyamanan Anda. Rasakan suasana harmonis dengan alam di Pantai Panduri, destinasi tepat untuk
+            berkemah di Tuban.
+          </p>
+        </div>
       </div>
     </div>
   </section>
+
+  <section id="history">
+    <div class="container">
+      <h2>Sejarah Pantai Panduri</h2>
+      <div class="history-content">
+        <p>
+          Pantai Panduri yang terletak di Desa Tasikharjo, Kecamatan Jenu, Kabupaten Tuban, Jawa Timur, awalnya
+          merupakan area pesisir yang kurang dimanfaatkan oleh masyarakat setempat.
+        </p>
+        <p>
+          Nama "Pantai Panduri" berasal dari tanaman pandan berduri yang tumbuh subur di sepanjang pesisir pantai ini.
+          Pada masa lalu, area ini dipenuhi semak belukar pandan berduri yang menjadi ciri khasnya.
+        </p>
+        <div class="history-timeline">
+          <div class="timeline-item">
+            <h3>Tahap Awal (Pendirian)</h3>
+            <p>
+              Tahun 2017-2018: Pantai Panduri resmi didirikan atas inisiatif masyarakat Desa Tasikharjo untuk mengelola
+              potensi wisata pesisir. Melalui kerja sama gotong royong, mereka mulai membuka akses menuju pantai,
+              membersihkan area sekitar, dan mempromosikan keindahan Pantai Panduri kepada pengunjung lokal.
+            </p>
+          </div>
+          <div class="timeline-item">
+            <h3>Tahap Penurunan (Penutupan)</h3>
+            <p>
+              Tahun 2019-2021: Akibat pandemi COVID-19, aktivitas wisata dan pengelolaan Pantai Panduri terhenti.
+              Pantai ditutup sementara, yang menyebabkan perlambatan dalam pengembangan dan promosi.
+            </p>
+          </div>
+          <div class="timeline-item">
+            <h3>Tahap Kebangkitan (Revitalisasi)</h3>
+            <p>
+              Tahun 2022: Dukungan dari program CSR PT Pertamina Patra Niaga Fuel Terminal Tuban menjadi titik
+              kebangkitan Pantai Panduri. Fasilitas wisata mulai ditingkatkan, masyarakat diberdayakan, dan kegiatan
+              pelestarian lingkungan dimulai untuk menjadikan pantai lebih menarik dan berkelanjutan.
+            </p>
+          </div>
+          <div class="timeline-item">
+            <h3>Tahap Pengembangan (Ekspansi)</h3>
+            <p>
+              Tahun 2023 - sekarang: Pantai Panduri terus berkembang dengan fokus pada peningkatan fasilitas wisata,
+              seperti camping ground dan area outbound, serta promosi sebagai destinasi wisata unggulan. Program
+              pelestarian lingkungan dan pemberdayaan ekonomi lokal juga semakin diperkuat untuk memastikan
+              keberlanjutan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Layanan Kami</h2>
+
+    <!-- Camping Ground -->
+    <div class="service">
+      <img src="kamping(3).jpeg" alt="Camping Ground">
+      <div class="service-text">
+        <h3>Camping Ground</h3>
+        <p>
+          Rasakan sensasi berkemah di tepi Pantai Panduri dengan pemandangan matahari terbit dan suara ombak yang
+          menenangkan. Dilengkapi area tenda luas, toilet bersih, dan penyewaan perlengkapan camping untuk pengalaman
+          yang nyaman dan berkesan.
+        </p>
+      </div>
+    </div>
+
+    <!-- Area Kuliner -->
+    <div class="service">
+      <img src="service2.jpeg" alt="Area Kuliner">
+      <div class="service-text">
+        <h3>Area Kuliner</h3>
+        <p>
+          Area kuliner Pantai Panduri menawarkan aneka jajanan lokal dari warung tradisional hingga beberapa pilihan
+          makanan berat yang lezat. Anda dapat menikmati hidangan sederhana dengan cita rasa khas, sambil menikmati
+          suasana pantai yang asri dan menenangkan. Cocok untuk bersantai bersama keluarga atau teman.
+        </p>
+      </div>
+    </div>
+
+    <!-- Area Aktivitas Outdoor -->
+    <div class="service">
+      <img src="service3.jpeg" alt="Area Aktivitas Outdoor">
+      <div class="service-text">
+        <h3>Area Aktivitas Outdoor</h3>
+        <p>
+          Rasakan keseruan berbagai aktivitas outdoor di area yang dirancang khusus untuk olahraga dan permainan luar
+          ruangan. Anda dapat bermain voli pantai, yoga, hingga aktivitas seni dan budaya di ruang terbuka. Tempat ini
+          cocok untuk semua usia dan dapat digunakan untuk acara khusus.
+        </p>
+      </div>
+    </div>
+
+    <!-- Kebun Bibit -->
+    <div class="service">
+      <img src="service5.jpeg" alt="Kebun Bibit">
+      <div class="service-text">
+        <h3>Kebun Bibit</h3>
+        <p>
+          Kunjungi kebun bibit Pantai Panduri untuk melihat koleksi tanaman lokal dan belajar tentang pelestarian
+          lingkungan. Area ini memberikan pengalaman edukasi tentang penghijauan, lengkap dengan program penanaman pohon
+          yang bisa diikuti oleh pengunjung.
+        </p>
+      </div>
+    </div>
+
+    <!-- Homestay -->
+    <div class="service">
+      <img src="service6.jpeg" alt="Homestay">
+      <div class="service-text">
+        <h3>Homestay</h3>
+        <p>
+          Homestay Pantai Panduri menawarkan pengalaman menginap yang nyaman dengan lokasi strategis dekat dengan
+          pantai. Lokasi homestay hanya beberapa langkah dari garis pantai. Dengan fasilitas memadai dan keramahan
+          khas masyarakat lokal.
+        </p>
+      </div>
+    </div>
+    <!-- Aula Terbuka -->
+    <div class="service">
+      <img src="service7.jpeg" alt="Homestay">
+      <div class="service-text">
+        <h3>Aula Terbuka</h3>
+        <p>
+          Aula terbuka Pantai Panduri cocok untuk acara pertemuan, bersantai, atau kegiatan seni dan budaya. Dengan
+          pemandangan langsung ke pantai, aula ini memberikan suasana alami yang nyaman dan inspiratif untuk
+          berbagai jenis kegiatan.
+        </p>
+      </div>
+    </div>
+    <!-- Aula Tertutup -->
+    <div class="service">
+      <img src="service8.jpeg" alt="Homestay">
+      <div class="service-text">
+        <h3>Aula Tertutup</h3>
+        <p>
+          Aula tertutup Pantai Panduri adalah ruang serbaguna dengan ukuran yang dapat disesuaikan untuk berbagai
+          kebutuhan. Aula tertutup memberikan fleksibilitas bagi Anda yang ingin menggunakannya untuk acara
+          formal, pelatihan, atau pertemuan dengan pengaturan sesuai kebutuhan.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section id="gallery">
     <h2>Galeri</h2>
     <div class="gallery">
-      <img src="https://source.unsplash.com/200x200/?beach,sea" alt="Pantai 1">
+      <img src="kamping(1).jpeg" alt="Pantai 1">
       <img src="https://source.unsplash.com/200x200/?sand,sunset" alt="Pantai 2">
       <img src="https://source.unsplash.com/200x200/?ocean,vacation" alt="Pantai 3">
       <img src="https://source.unsplash.com/200x200/?waves,paradise" alt="Pantai 4">
@@ -390,6 +286,7 @@
         clone.remove();
       }, 800); // Durasi animasi fade sesuai CSS (0.8s)
     });
+
   </script>
 </body>
 
