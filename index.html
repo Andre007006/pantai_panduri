@@ -37,10 +37,14 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="Logo Panduri no bg.png" alt="Logo Panduri" style="height: 40px; vertical-align: middle;">Pantai
-        Panduri
+        <img src="Logo Panduri no bg.png" alt="Logo Panduri"> Pantai Panduri
       </div>
-      <div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="menu">
         <a href="#home">Beranda</a>
         <a href="#about">Tentang</a>
         <a href="#services">Layanan</a>
@@ -240,26 +244,100 @@
   <section id="gallery">
     <h2>Galeri</h2>
     <div class="gallery">
-      <img src="kamping(1).jpeg" alt="Pantai 1">
-      <img src="https://source.unsplash.com/200x200/?sand,sunset" alt="Pantai 2">
-      <img src="https://source.unsplash.com/200x200/?ocean,vacation" alt="Pantai 3">
-      <img src="https://source.unsplash.com/200x200/?waves,paradise" alt="Pantai 4">
+      <div class="gallery-item">
+        <img src="image1.jpeg" alt="Pantai di pagi hari">
+        <h3>Pantai di Pagi Hari</h3>
+      </div>
+      <div class="gallery-item">
+        <img src="image2.jpeg" alt="Malam Berbintang">
+        <h3>Malam Berbintang</h3>
+      </div>
+      <div class="gallery-item">
+        <img src="kamping(3).jpeg" alt="Camping Seru">
+        <h3>Camping Seru</h3>
+      </div>
+      <div class="gallery-item">
+        <img src="image4.jpeg" alt="Sunset Indah">
+        <h3>Sunset Indah</h3>
+      </div>
+      <div class="gallery-item">
+        <img src="image5.jpeg" alt="Outbound Seru">
+        <h3>Outbound Seru</h3>
+      </div>
+      <div class="gallery-item">
+        <img src="image6.jpeg" alt="Kegiatan Edukasi">
+        <h3>Kegiatan Edukasi</h3>
+      </div>
+      <div class="gallery-item">
+        <img src="image7.jpeg" alt="Pohon Hijau">
+        <h3>Pohon Hijau</h3>
+      </div>
+      <div class="gallery-item">
+        <img src="image8.jpeg" alt="Berlayar di Laut">
+        <h3>Berlayar di Laut</h3>
+      </div>
     </div>
   </section>
+
   <section id="contact">
     <h2>Kontak Kami</h2>
-    <form>
-      <input type="text" placeholder="Nama" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Pesan" rows="5" required></textarea>
-      <button type="submit">Kirim</button>
-    </form>
+    <div class="contact-container">
+
+      <!-- Ikon di atas form -->
+      <div class="contact-icons">
+        <div>
+          <img src="icon1.png" alt="Follow Us">
+          <p>Follow Us</p>
+        </div>
+        <div>
+          <img src="icon2.png" alt="Visit Us">
+          <p>Visit Us</p>
+        </div>
+        <div class="active">
+          <img src="icon3.png" alt="Contact Us">
+          <p>Contact Us</p>
+        </div>
+      </div>
+
+      <div class="contact-content">
+        <!-- Formulir Kontak -->
+        <div class="contact-form">
+          <form action="#" method="post">
+            <input type="text" name="name" placeholder="* NAME" required>
+            <input type="email" name="email" placeholder="* EMAIL" required>
+            <textarea name="message" rows="4" placeholder="* MESSAGE" required></textarea>
+            <button type="submit">SEND MESSAGE</button>
+          </form>
+        </div>
+
+        <!-- Pemisah | -->
+        <div class="divider">|</div>
+
+        <!-- Peta Lokasi -->
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.2533854713083!2d110.39106707414215!3d-7.8686426921849295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a575fdf1fdf6f%3A0x3b0c4c4b3b4e7f7e!2sYogyakarta!5e0!3m2!1sen!2sid!4v1633796184651!5m2!1sen!2sid"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
   </section>
+
+
   <footer>
     <p>&copy; 2025 Layanan Wisata Pantai. Semua Hak Dilindungi.</p>
   </footer>
 
   <script>
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+
     // Menambahkan efek perubahan latar navbar saat scroll
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
