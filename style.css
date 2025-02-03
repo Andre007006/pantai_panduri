@@ -136,21 +136,6 @@ nav .menu.active a {
   padding: 15px 0;
 }
 
-
-/* Responsive untuk Mobile */
-@media (max-width: 768px) {
-  nav .menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  nav .hamburger {
-    display: flex;
-  }
-}
-
-
 .hero {
   position: relative;
   height: 100vh;
@@ -466,21 +451,7 @@ p {
 }
 
 /* Responsif */
-@media (max-width: 768px) {
-  #about {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-content {
-    padding-right: 0;
-    margin-bottom: 20px;
-  }
-
-  .about-image img {
-    margin: 0 auto;
-  }
-}
+@media (max-width: 768px) {}
 
 
 /* Tambahkan jarak atas untuk Tentang dan Sejarah */
@@ -551,19 +522,6 @@ p {
   color: #555;
 }
 
-/* Media Queries untuk tampilan lebih kecil */
-@media (max-width: 768px) {
-  .service {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .service-text {
-    text-align: center;
-  }
-}
-
-
 /* Styling untuk galeri */
 .service,
 .gallery-item {
@@ -622,15 +580,6 @@ p {
 .gallery-item:hover img {
   transform: scale(1.1);
   /* Efek zoom */
-}
-
-
-footer {
-  background: #004d4d;
-  color: #fff;
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
 }
 
 /* Styling Umum */
@@ -922,11 +871,12 @@ footer {
   background: #3498db;
 }
 
-
 /* Responsive Tablet*/
 @media (max-width: 768px) {
   nav .menu {
     display: none;
+    flex-direction: column;
+    width: 100%;
   }
 
   nav .hamburger {
@@ -962,6 +912,16 @@ footer {
 
   p {
     font-size: 0.95rem;
+  }
+
+  /* Service Responsive */
+  .service {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .service-text {
+    text-align: center;
   }
 
   /* Gallery Responsive */

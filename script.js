@@ -8,7 +8,7 @@ function toggleMenu() {
 // Menambahkan efek perubahan latar navbar saat scroll
 window.addEventListener("scroll", () => {
   const nav = document.querySelector("nav");
-  if (window.scrollY > 50) {
+  if (window.scrollY > 100) {
     nav.classList.add("scrolled");
   } else {
     nav.classList.remove("scrolled");
@@ -160,7 +160,7 @@ document.querySelector(".contact-form").addEventListener("submit", function (eve
   let message = document.getElementById("message").value;
 
   // Nomor WhatsApp tujuan
-  let phoneNumber = "6283123013841";
+  let phoneNumber = "6283861995160";
 
   // format pesan
   let whatsappMessage = `Halo, saya ingin melakukan reservasi:\n\n` +
