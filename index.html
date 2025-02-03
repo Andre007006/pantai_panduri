@@ -11,7 +11,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Playwrite+AU+SA:wght@100..400&family=Playwrite+AU+TAS+Guides&family=Playwrite+GB+S+Guides:ital@0;1&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const images = document.querySelectorAll('.carousel-image');
@@ -39,7 +42,7 @@
       <div class="logo">
         <img src="Logo Panduri no bg.png" alt="Logo Panduri"> Pantai Panduri
       </div>
-      <div class="hamburger">
+      <div class="hamburger" onclick="toggleMenu()">
         <span></span>
         <span></span>
         <span></span>
@@ -54,6 +57,7 @@
       </div>
     </nav>
   </header>
+
   <div id="home" class="hero">
     <div class="carousel">
       <div class="carousel-image" style="background-image: url(hero1.jpeg); background-position: bottom;"></div>
@@ -152,7 +156,7 @@
     <h2>Layanan Kami</h2>
 
     <!-- Camping Ground -->
-    <div class="service">
+    <div class="service" id="camping">
       <img src="kamping(3).jpeg" alt="Camping Ground">
       <div class="service-text">
         <h3>Camping Ground</h3>
@@ -165,7 +169,7 @@
     </div>
 
     <!-- Area Kuliner -->
-    <div class="service">
+    <div class="service" id="kuliner">
       <img src="service2.jpeg" alt="Area Kuliner">
       <div class="service-text">
         <h3>Area Kuliner</h3>
@@ -178,7 +182,7 @@
     </div>
 
     <!-- Area Aktivitas Outdoor -->
-    <div class="service">
+    <div class="service" id="outdoor">
       <img src="service3.jpeg" alt="Area Aktivitas Outdoor">
       <div class="service-text">
         <h3>Area Aktivitas Outdoor</h3>
@@ -191,7 +195,7 @@
     </div>
 
     <!-- Kebun Bibit -->
-    <div class="service">
+    <div class="service" id="bibit">
       <img src="service5.jpeg" alt="Kebun Bibit">
       <div class="service-text">
         <h3>Kebun Bibit</h3>
@@ -204,7 +208,7 @@
     </div>
 
     <!-- Homestay -->
-    <div class="service">
+    <div class="service" id="homestay">
       <img src="service6.jpeg" alt="Homestay">
       <div class="service-text">
         <h3>Homestay</h3>
@@ -216,7 +220,7 @@
       </div>
     </div>
     <!-- Aula Terbuka -->
-    <div class="service">
+    <div class="service" id="aulaTerbuka">
       <img src="service7.jpeg" alt="Homestay">
       <div class="service-text">
         <h3>Aula Terbuka</h3>
@@ -228,7 +232,7 @@
       </div>
     </div>
     <!-- Aula Tertutup -->
-    <div class="service">
+    <div class="service" id="#aulaTertutup">
       <img src="service8.jpeg" alt="Homestay">
       <div class="service-text">
         <h3>Aula Tertutup</h3>
@@ -257,11 +261,11 @@
         <h3>Camping Seru</h3>
       </div>
       <div class="gallery-item">
-        <img src="image4.jpeg" alt="Sunset Indah">
+        <img src="image4.jpg" style="height: 240px;" alt="Sunset Indah">
         <h3>Sunset Indah</h3>
       </div>
       <div class="gallery-item">
-        <img src="image5.jpeg" alt="Outbound Seru">
+        <img src="image5.jpg" style="height: 238px;" alt="Outbound Seru">
         <h3>Outbound Seru</h3>
       </div>
       <div class="gallery-item">
@@ -269,103 +273,132 @@
         <h3>Kegiatan Edukasi</h3>
       </div>
       <div class="gallery-item">
-        <img src="image7.jpeg" alt="Pohon Hijau">
+        <img src="service5.jpeg" alt="Pohon Hijau">
         <h3>Pohon Hijau</h3>
       </div>
       <div class="gallery-item">
-        <img src="image8.jpeg" alt="Berlayar di Laut">
-        <h3>Berlayar di Laut</h3>
+        <img src="image8.jpeg" style="height: 240px;" alt="Berlayar di Laut">
+        <h3>Kegiatan Pelatihan Water Rescue</h3>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Kontak Kami</h2>
+
     <div class="contact-container">
-
-      <!-- Ikon di atas form -->
-      <div class="contact-icons">
-        <div>
-          <img src="icon1.png" alt="Follow Us">
-          <p>Follow Us</p>
-        </div>
-        <div>
-          <img src="icon2.png" alt="Visit Us">
-          <p>Visit Us</p>
-        </div>
-        <div class="active">
-          <img src="icon3.png" alt="Contact Us">
-          <p>Contact Us</p>
-        </div>
-      </div>
-
-      <div class="contact-content">
-        <!-- Formulir Kontak -->
-        <div class="contact-form">
-          <form action="#" method="post">
-            <input type="text" name="name" placeholder="* NAME" required>
-            <input type="email" name="email" placeholder="* EMAIL" required>
-            <textarea name="message" rows="4" placeholder="* MESSAGE" required></textarea>
-            <button type="submit">SEND MESSAGE</button>
-          </form>
+      <form class="contact-form">
+        <div class="form-group">
+          <div class="input-box">
+            <input type="text" id="name" required>
+            <label for="name">Full Name</label>
+          </div>
+          <div class="input-box">
+            <input type="email" id="email" required>
+            <label for="email">Alamat</label>
+          </div>
         </div>
 
-        <!-- Pemisah | -->
-        <div class="divider">|</div>
+        <div class="form-group">
+          <div class="input-box">
+            <input type="text" id="phone" required>
+            <label for="phone">Phone</label>
+          </div>
 
-        <!-- Peta Lokasi -->
-        <div class="contact-map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.2533854713083!2d110.39106707414215!3d-7.8686426921849295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a575fdf1fdf6f%3A0x3b0c4c4b3b4e7f7e!2sYogyakarta!5e0!3m2!1sen!2sid!4v1633796184651!5m2!1sen!2sid"
-            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-          </iframe>
+          <div class="input-box dropdown">
+            <select id="package" required>
+              <option value="" disabled selected></option>
+              <option>Wisata Pantai</option>
+              <option>Camping</option>
+              <option>Outbond</option>
+              <option>Kegiatan Outdoor</option>
+            </select>
+            <label for="package">Paket Liburan</label>
+            <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+          </div>
         </div>
-      </div>
+
+        <div class="form-group">
+          <div class="input-box">
+            <input type="date" id="date" required>
+            <label for="date">Pilih Tanggal</label>
+          </div>
+
+          <div class="input-box">
+            <input type="number" id="visitors" required>
+            <label for="visitors">Jumlah Pengunjung</label>
+          </div>
+        </div>
+
+        <div class="input-box full-width">
+          <textarea id="message" rows="5" required></textarea>
+          <label for="message">Your Message</label>
+        </div>
+
+        <div class="button-group">
+          <button type="submit">Kirim Pesan</button>
+        </div>
+      </form>
     </div>
   </section>
 
+  <!-- Peta -->
+  <div class="map-container" id="visitUs">
+    <h3>Peta Lokasi</h3>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43280.11032307926!2d111.93049786114938!3d-6.799364130812055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77a6688c58dc13%3A0xed6292b4c9e3cafe!2sPantai%20PANDURI!5e0!3m2!1sid!2sid!4v1738291539567!5m2!1sid!2sid"
+      width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" width="100%" height="400" style="border:0;" allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Layanan Wisata Pantai. Semua Hak Dilindungi.</p>
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="Logo Panduri no bg.png" alt="Logo Wisata Pantai Kelapa" class="footer-logo">
+        <p>Pantai Panduri: Tempat untuk menikmati pemandangan laut biru, pasir putih, dan malam bertabur bintang
+          diiringi deburan ombak
+          yang menenangk</p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-middle">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#services">Layanan</a></li>
+          <li><a href="#gallery">Galeri</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-right">
+        <h3>Contacts</h3>
+        <p><strong>Alamat:</strong> ...</p>
+        <p><strong>Email:</strong> ...</p>
+        <p><strong>Phone:</strong> (+62) ...</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Copyright 2025 Pantai Panduri.<strong> All Rights Reserved</strong></p>
+    </div>
+
+    <!-- Tombol WhatsApp & Scroll Up -->
+    <div class="floating-buttons">
+      <a href="#" class="scroll-up"><i class="fa-solid fa-chevron-up"></i></a>
+      <a href="https://wa.me/62895366637605" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
   </footer>
 
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const menu = document.querySelector('.menu');
-
-    hamburger.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-
-
-    // Menambahkan efek perubahan latar navbar saat scroll
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('nav');
-      if (window.scrollY > 500) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
-
-    document.addEventListener('mousemove', (event) => {
-      const cursorTrail = document.querySelector('.cursor-trail');
-
-      // Update posisi kursor
-      cursorTrail.style.left = `${event.pageX}px`;
-      cursorTrail.style.top = `${event.pageY}px`;
-
-      // Duplikasi jejak
-      const clone = cursorTrail.cloneNode();
-      document.body.appendChild(clone);
-
-      // Hilangkan jejak setelah beberapa waktu
-      setTimeout(() => {
-        clone.remove();
-      }, 800); // Durasi animasi fade sesuai CSS (0.8s)
-    });
-
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
