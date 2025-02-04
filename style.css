@@ -436,24 +436,6 @@ p {
   color: #555;
 }
 
-@media screen and (max-width: 768px) {
-  #history {
-    padding: 20px;
-  }
-
-  .timeline-item h3 {
-    font-size: 1.2em;
-  }
-
-  .timeline-item p {
-    font-size: 0.9em;
-  }
-}
-
-/* Responsif */
-@media (max-width: 768px) {}
-
-
 /* Tambahkan jarak atas untuk Tentang dan Sejarah */
 #about,
 #history {
@@ -790,13 +772,13 @@ footer {
 }
 
 .footer-logo {
-  width: 150px;
+  width: 100px;
   margin-bottom: 10px;
 }
 
 .social-icons a {
-  color: #ff9800;
-  font-size: 20px;
+  color: #3498db;
+  font-size: 25px;
   margin-right: 10px;
   transition: 0.3s;
 }
@@ -912,6 +894,19 @@ footer {
 
   p {
     font-size: 0.95rem;
+  }
+
+  /* History Responsive */
+  #history {
+    padding: 20px;
+  }
+
+  .timeline-item h3 {
+    font-size: 1.2em;
+  }
+
+  .timeline-item p {
+    font-size: 0.9em;
   }
 
   /* Service Responsive */
